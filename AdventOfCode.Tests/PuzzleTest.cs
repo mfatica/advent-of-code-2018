@@ -1,13 +1,16 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AdventOfCode.Tests
 {
-    public interface PuzzleTest
+    public abstract class PuzzleTest<TPuzzle, TInput, TResult> where TPuzzle : Puzzle<TInput, TResult>
     {
         [TestMethod]
-        void SolvePuzzle();
+        public void SolvePuzzle()
+        {
+            var puzzle = (TPuzzle)Activator.CreateInstance(typeof(TPuzzle));
+            var actualResult = puzzle.Solve();
+            Assert.AreEqual(puzzle.ExpectedResult, actualResult);
+        }
     }
 }

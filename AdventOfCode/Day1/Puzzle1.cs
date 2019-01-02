@@ -1,29 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace AdventOfCode.Day1
 {
-    public class Puzzle1 : Puzzle<string, int>
+    public class Puzzle1 : Puzzle<int[], int>
     {
         const int StartingFrequency = 0;
 
-        public int Solve(string input)
+        public int Solve(int[] input)
         {
             int currentFrequency = StartingFrequency;
 
-            foreach (var nStr in input.Split(Environment.NewLine))
+            foreach (var n in input)
             {
-                if (int.TryParse(nStr, out int n))
-                {
-                    currentFrequency += n;
-                }
+                currentFrequency += n;
             }
 
             return currentFrequency;
         }
-        
-        public string Input =>
+
+        public int ExpectedResult => 518;
+
+        public int[] Input =>
 @"-7
 -19
 +18
@@ -1044,6 +1042,8 @@ namespace AdventOfCode.Day1
 +13
 +37
 +62
--73422";
+-73422".Split(Environment.NewLine)
+                .Select(nstr => int.Parse(nstr))
+                .ToArray();
     }
 }

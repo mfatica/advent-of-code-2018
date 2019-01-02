@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AdventOfCode
+﻿namespace AdventOfCode
 {
     public interface Puzzle<TInput, TResult>
     {
         TInput Input { get; }
         TResult Solve(TInput input);
+        TResult ExpectedResult { get; }
     }
 
     public static class PuzzleExtensions

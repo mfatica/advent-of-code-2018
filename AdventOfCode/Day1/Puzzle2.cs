@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace AdventOfCode.Day1
 {
@@ -71,6 +69,8 @@ namespace AdventOfCode.Day1
 
             return frequency;
         }
+
+        public int ExpectedResult => 72889;
 
         public int[] Input =>
 @"-7
