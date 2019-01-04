@@ -14,10 +14,10 @@ namespace AdventOfCode.Day1
 
         bool Search(Node current, int n)
         {
-            if (current.Number == n)
+            if (current.Value == n)
                 return true;
 
-            var nextNode = n < current.Number
+            var nextNode = n < current.Value
                 ? current.Left
                 : current.Right;
 
@@ -34,10 +34,10 @@ namespace AdventOfCode.Day1
         {
             var child = new Node
             {
-                Number = n
+                Value = n
             };
 
-            if (n < parent.Number)
+            if (n < parent.Value)
                 parent.Left = child;
             else
                 parent.Right = child;
@@ -45,7 +45,7 @@ namespace AdventOfCode.Day1
 
         class Node
         {
-            public int Number { get; set; }
+            public int Value { get; set; }
 
             public Node Left { get; set; }
             public Node Right { get; set; }

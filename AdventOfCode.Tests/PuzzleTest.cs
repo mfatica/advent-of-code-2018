@@ -12,5 +12,12 @@ namespace AdventOfCode.Tests
             var actualResult = puzzle.Solve();
             Assert.AreEqual(puzzle.ExpectedResult, actualResult);
         }
+        
+        protected void SolvePuzzle(TInput testInput, TResult expected)
+        {
+            var puzzle = (TPuzzle)Activator.CreateInstance(typeof(TPuzzle));
+            var actualResult = puzzle.Solve(testInput);
+            Assert.AreEqual(expected, actualResult);
+        }
     }
 }
