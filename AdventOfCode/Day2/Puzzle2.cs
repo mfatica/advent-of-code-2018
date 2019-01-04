@@ -169,7 +169,7 @@ namespace AdventOfCode.Day2
 
     public class Puzzle2 : Puzzle<string[], string>
     {
-        public string ExpectedResult => "cnjxoritwzhvbsyemqgkul";
+        public string ExpectedResult => "cnjxoritzhvbosyewrmqhgkul";
 
         // Trie solution
         // Works with test input but not the actual input
@@ -206,7 +206,15 @@ namespace AdventOfCode.Day2
                     }
 
                     if (diff == 1)
-                        return string.Join("", x.Intersect(y));
+                    {
+                        var sb = new StringBuilder();
+                        for(int i = 0; i < x.Length; i++)
+                        {
+                            if (x[i] == y[i])
+                                sb.Append(x[i]);
+                        }
+                        return sb.ToString();
+                    }
                 }
             }
 
