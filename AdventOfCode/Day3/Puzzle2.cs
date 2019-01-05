@@ -35,6 +35,9 @@ namespace AdventOfCode.Day3
                     for (int y = claim.Top; y < claim.Top + claim.Height; y++)
                     {
                         noOverlap = noOverlap && fabric[x, y] == 1;
+
+                        if (!noOverlap)
+                            continue;
                     }
                 }
 
